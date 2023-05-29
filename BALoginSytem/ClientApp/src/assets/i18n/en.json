@@ -1,3 +1,14 @@
 {
-  "HELLO_WORLD": "Hello, World!11"
+  "HELLO_WORLD": "Hello, World!11",
+  "home_page": "Home page",
+  "product": "Product",
+  "news": "News",
+  "fee": "Fee",
+  "tutorial": "Tutorial",
+  "mang_luoi": "Net",
+  "about_us": "About us",
+  "login": {
+    "login": "Login"
+  }
+    
 }

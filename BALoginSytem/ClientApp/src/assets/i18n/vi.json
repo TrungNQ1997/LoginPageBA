@@ -1,3 +1,14 @@
 {
-  "HELLO_WORLD": "Xin chào, thế giới!22"
+  "HELLO_WORLD": "Xin chào, thế giới!22",
+  "home_page": "Trang chủ",
+  "product": "Sản phẩm dịch vụ",
+  "news": "Tin tức",
+  "fee": "Đóng phí",
+  "tutorial": "Hướng dẫn",
+  "mang_luoi": "Mạng lưới",
+  "about_us": "Về chúng tôi",
+  "login": {
+    "login": "Đăng nhập"
+  }
+
 }

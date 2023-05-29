@@ -2,14 +2,14 @@
   <nav
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
-    <div class="container">
-      <h1>{{ 'HELLO_WORLD' | translate }}</h1>
-      <button (click)="toggle()">
+    <div class="container font-menu" style="height:80px">
+      <!--<h1>{{ 'HELLO_WORLD' | translate }}</h1>-->
+      <!--<button (click)="toggle()">
         azz
       </button>
       <button (click)="collapse()">
         szz
-      </button>
+      </button>-->
       <div class="col-lg-2 col-2">
         <a class="logo"
            href="https://bagps.vn/"
@@ -18,12 +18,12 @@
                draggable="false"
                class="style-scope yt-img-shadow"
                alt=""
-               width="128"
+               width="80"
                src="https://yt3.googleusercontent.com/ytc/AGIKgqNNq8pz2UWbfitGJUwAULnJZIwZnDUdSS_Pdcol=s176-c-k-c0x00ffffff-no-rj">
         </a>
       </div>
 
-      <a class="navbar-brand" [routerLink]="['/']">BALoginSytem</a>
+      <!--<a class="navbar-brand" [routerLink]="['/']">BALoginSytem</a>-->
       <button class="navbar-toggler"
               type="button"
               data-toggle="collapse"
@@ -39,16 +39,155 @@
           <li class="nav-item"
               [routerLinkActive]="['link-active']"
               [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            <a class="nav-link text-dark"
+               href="https://bagps.vn/"
+               target="_blank"
+               rel="noopener noreferrer">{{ 'home_page' | translate }}</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
+            <a class="nav-link text-dark"
+               href="https://bagps.vn/san-pham-va-giai-phap"
+               target="_blank"
+               rel="noopener noreferrer">{{ 'product' | translate }}</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
+            <a class="nav-link text-dark"
+               href="https://bagps.vn/tin-tuc-c10"
+               target="_blank"
+               rel="noopener noreferrer">{{ 'news' | translate }}</a>
           </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark"
+               href="https://bagps.vn/huong-dan-dong-phi-dich-vu-ba-gps-d610"
+               target="_blank"
+               rel="noopener noreferrer">{{ 'fee' | translate }}</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark"
+               href="https://badoc.bagroup.vn/display/GPS/1.+HDSD+WEB+GPS"
+               target="_blank"
+               rel="noopener noreferrer">{{ 'tutorial' | translate }}</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark"
+               href="https://bagps.vn/mang-luoi"
+               target="_blank"
+               rel="noopener noreferrer">{{ 'mang_luoi' | translate }}</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark"
+               href="https://bagps.vn/gioi-thieu/"
+               target="_blank"
+               rel="noopener noreferrer">{{ 'about_us' | translate }}</a>
+          </li>
+          <div class="div-tel"  >1900 6464</div>
+          <select class='select-option border-none'
+                  #mySelect
+                  (change)='onOptionsSelected(mySelect.value)'>
+            <option class='option'
+                    *ngFor='let option of dropDownData'
+                    [value]="option.seo_val" (click)="setLanguage(option.seo_val)">
+              <div>
+
+                <img style="height:50px;width:50px"
+                     src="http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/back01.jpg" />
+                {{option.text_val}}
+
+              </div>
+
+            </option>
+          </select>
+
+
+          <!--<div class="dropdown">
+            <button class="dropbtn">
+              Country Flags
+            </button>
+
+            <div class="dropdown-content">
+              <a href="#">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200630132503/iflag.jpg"
+                     width="20" height="15"> India
+              </a>
+
+              <a href="#">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200630132504/uflag.jpg"
+                     width="20" height="15"> USA
+              </a>
+              <a href="#">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200630132502/eflag.jpg"
+                     width="20" height="15"> England
+              </a>
+              <a href="#">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200630132500/bflag.jpg"
+                     width="20" height="15"> Brazil
+              </a>
+            </div>
+          </div>-->
+
+
         </ul>
       </div>
     </div>
   </nav>
 </header>
+<style>
+  .font-menu * {
+    color: rgb(97,148,194)!important;
+    font-size: 12px;
+  }
+  .border-none{
+    border:none
+  }
+  .div-tel {
+    border-radius: 25px;
+    border: 0.5px solid rgb(97,148,194);
+    padding-top: 7px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+
+
+  .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+      .dropdown-content a:hover {
+        background-color: #f1f1f1
+      }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+</style>
