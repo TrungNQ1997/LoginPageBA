@@ -68,6 +68,14 @@ export class HomeComponent {
     //(this.showSlides(), 1000); // Change image every 5 seconds
   }
 
+  showPass() {
+    let password = document.querySelector('#exampleInputPassword1');
+    if (password) {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+    }
+  }
+
   showSlides(n: any) {
     let i;
     let slides = document.getElementsByClassName("mySlides");
@@ -106,26 +114,7 @@ export class HomeComponent {
   this.showSlidesNoTimeout(this.slideIndex = n);
   };
   constructor() {
-   //var slideIndex = 1;
-   // function currentSlide(n: any) {
-   //   showSlides(slideIndex = n);
-   // };
-
-   // function showSlides(n: any) {
-   //   let i;
-   //   let slides = document.getElementsByClassName("mySlides");
-   //   let dots = document.getElementsByClassName("dot");
-   //   if (n > slides.length) { slideIndex = 1 }
-   //   if (n < 1) { slideIndex = slides.length }
-   //   for (i = 0; i < slides.length; i++) {
-   //     slides[i].className += " dp-none";
-   //   }
-   //   for (i = 0; i < dots.length; i++) {
-   //     dots[i].className = dots[i].className.replace(" active", "");
-   //   }
-   //   slides[slideIndex - 1].className += " dp-block";
-   //   dots[slideIndex - 1].className += " active";
-   // }
+   
 
   }
 
@@ -134,7 +123,7 @@ export class HomeComponent {
   }
  
   ngAfterViewInit() {
-    //this.showSlides(this.slideIndex);
+    this.showSlides(this.slideIndex);
   }
 
 }

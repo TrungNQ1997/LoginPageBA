@@ -2,7 +2,7 @@
 <div style="height:calc(100vh - 280px )">
 
   <!-- div bao news, login -->
-  <div class="slideshow-container max-size" style="position:relative;margin:unset;max-width:unset">
+  <div class="slideshow-container max-size " style="position:relative;margin:unset;max-width:unset">
 
     <!-- Full-width images with number and caption text -->
     <div *ngFor="let ban of listBanner" class="mySlides max-size" style="background-color:rgb(32,52,105)">
@@ -10,18 +10,21 @@
       <img class="img-news"
            src="{{ban.linkImg}}"/>
       
-      <div class="col-md-6 div-content-news " style="height:100px">
+      <div class="col-6 div-content-news " style="height:70px">
         <div style="position:relative">
           <div class="title-news">{{ban.title}}</div>
           <!--<br />-->
-          <div class="des-news">{{ban.description}}</div>
+          <div class="des-news">
+            {{ban.description}}
+            <!--<textarea [(ngModel)]="ban.description" maxlength="200" ></textarea>-->
+          </div>
 
            
           
           <div class="div-detail"  >
             <a style="text-decoration: none; color: rgb(30,74,102)" href="{{ban.linkTopic}}" target="_blank"
                rel="noopener noreferrer">Chi tiết</a>
-            <i class="fa-solid fa-arrow-right icon-detail"></i>
+            <i  class="fa-solid fa-xs fa-arrow-right icon-detail"></i>
             
           </div>
           
@@ -40,13 +43,13 @@
            width="80"
            src="https://yt3.googleusercontent.com/ytc/AGIKgqNNq8pz2UWbfitGJUwAULnJZIwZnDUdSS_Pdcol=s176-c-k-c0x00ffffff-no-rj" />
       <div style="display:flex;position:relative;width:100%">
-        <input type="text" class="form-control border-radius-20 margin-tb-5" maxlength="50" id="exampleInputEmail1" placeholder="Tên đăng nhập" aria-describedby="emailHelp" style="padding-left:30px" />
+        <input type="text" class="form-control border-radius-20 margin-tb-5" maxlength="50" id="exampleInputEmail1" placeholder="{{'login.username' | translate}}" aria-describedby="emailHelp" style="padding-left:30px" />
         <i class="fa-solid fa-user icon-login"></i>
            </div>
       <div style="display:flex;position:relative;width:100%">
-        <input type="password" class="form-control border-radius-20 margin-tb-5" maxlength="200" placeholder="Mật khẩu" id="exampleInputPassword1" style="padding-left:30px" />
+        <input type="password" class="form-control border-radius-20 margin-tb-5" maxlength="200" placeholder="{{'login.pass' | translate}}" id="exampleInputPassword1" style="padding-left:30px" />
         <i class="fa-solid fa-lock icon-login"></i>
-        <i class="fa-regular fa-eye icon-login-end"></i>
+        <i (click)="showPass()"  class="fa-regular fa-eye icon-login-end"></i>
          </div>
 
         <div class="margin-tb-5" style="display:flex">
@@ -57,16 +60,16 @@
 
         </div>
 
-        <button type="submit" class="btn btn-primary border-radius-20 margin-tb-5" style="width:100%">
+        <button type="submit" class="btn btn-primary border-radius-20 margin-tb-5" style="width: 100%; background-image: linear-gradient(90deg, rgb(40,153,255), rgb(0,209,255));border:none">
           {{ 'login.login' | translate }}
         </button>
 
-        <img id="img" style="margin-top:50px"
+        <img id="img" style="margin-top:25px"
              draggable="false"
              class="style-scope yt-img-shadow"
              alt=""
-             width="80"
-             src="https://yt3.googleusercontent.com/ytc/AGIKgqNNq8pz2UWbfitGJUwAULnJZIwZnDUdSS_Pdcol=s176-c-k-c0x00ffffff-no-rj" />
+             width="100"
+             src="/assets/img/M5GK-qrcode.png" />
 
         <label>Quét mã QR để cài app</label>
       </div>
@@ -84,7 +87,7 @@
 
 
 
-<div class="d-flex" style="margin-left:auto;margin-right:auto">
+<div class="d-flex div-container-footer" style="margin-left:auto;margin-right:auto;padding-top:20px;position:relative">
   <!--div chi nhánh-->
   <div class="col-md-2 div-bran" *ngFor="let branch of listBranch" style="height:200px">
 
@@ -94,10 +97,42 @@
 
 
   </div>
+  <div style="display:flex;flex-direction:column;position:absolute;right:0px">
+    <!--div link social-->
+
+    <a href="https://play.google.com/store/apps/details?id=vn.bagps.gpsmobile" target="_blank"
+       rel="noopener noreferrer"><img class="img-app" src="/assets/img/google-play.jpg" /></a>
+    <a href="https://itunes.apple.com/us/app/ba-gps/id1466206178?ls=1&mt=8" target="_blank"
+       rel="noopener noreferrer"><img class="img-app" src="/assets/img/app-store.jpg" /></a>
+    <div style="display:flex">
+      <a href="https://www.facebook.com/giamsathanhtrinhbinhanh/" target="_blank"
+         rel="noopener noreferrer"><img class="img-social"  src="/assets/img/Facebook.png.webp" /></a>
+      <a href="https://zalo.me/1958838581480438876" target="_blank"
+         rel="noopener noreferrer"><img class="img-social"  src="/assets/img/Zalo.webp" /></a>
+
+      <a href="https://www.youtube.com/@BAGPS" target="_blank"
+         rel="noopener noreferrer"><img class="img-social" src="/assets/img/youtube.jpg" /></a>
+    </div>
+  </div>
+
 </div>
 
  
 <style>
+  .div-container-footer{
+    margin-left:30px!important;
+    margin-right:30px!important;
+  }
+  .img-app{
+    width:135px;
+    height:51px;
+    padding-bottom:10px
+  }
+  .img-social {
+    width: 25px;
+    height: 25px;
+    margin:10px
+  }
   .icon-login {
     position: absolute;
     width: 15px;
@@ -110,7 +145,7 @@
     padding-right: 30px;
     border-radius: 20px;
     position: absolute;
-    top: 20px;
+    top: 17px;
     right: 20px;
     background-color: rgb(139,195,74);
     color: rgb(18,51,106);
@@ -120,10 +155,10 @@
 
   .icon-detail {
     position: absolute;
-    width: 15px;
-    height: 15px;
-    top: 5px;
-    right: 6px;
+    width: 10px;
+    height: 10px;
+    top: 12px;
+    right: 15px;
     color: rgb(30,74,102)
   }
   .icon-login-end {
@@ -132,7 +167,8 @@
     height: 15px;
     top: 16px;
     right: 10px;
-    color: #717171
+    color: #717171;
+    cursor:pointer;
   }
   .margin-tb-5{
       margin-top:5px;
@@ -144,7 +180,7 @@
   .div-login {
     position: absolute;
     border-radius: 20px;
-    right: 20px;
+    right: 30px;
     top: 50px;
     display: flex;
     flex-direction: column;
@@ -158,17 +194,22 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 80%;
+    padding-right: 120px;
+    font-weight:bold;
+    padding-top:5px;
+    padding-left:10px;
     height: 30px;
-    padding-left:5px;
+    padding-bottom:5px;
   }
   .des-news {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 80%;
+    padding-right: 120px;
     height: 30px;
-    padding-left: 5px;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left: 10px;
   }
   .max-size {
     height: 100% !important;
@@ -182,7 +223,8 @@
   }
   .title-bran{
       font-weight:bold;
-      color:rgb(9,81,136)
+      color:rgb(9,81,136);
+      padding-top:5px
   }
   * {
     box-sizing: border-box

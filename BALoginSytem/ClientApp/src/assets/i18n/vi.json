@@ -8,7 +8,10 @@
   "mang_luoi": "Mạng lưới",
   "about_us": "Về chúng tôi",
   "login": {
-    "login": "Đăng nhập"
-  }
+    "login": "Đăng nhập",
+    "pass": "Mật khẩu",
+    "username": "Tên đăng nhập"
+  },
+  "detail": "Chi tiết"
 
 }

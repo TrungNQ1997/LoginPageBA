@@ -8,7 +8,10 @@
   "mang_luoi": "Net",
   "about_us": "About us",
   "login": {
-    "login": "Login"
-  }
-    
+    "login": "Login",
+    "pass": "Password",
+    "username": "Username"
+  },
+  "detail": "Detail"
+
 }

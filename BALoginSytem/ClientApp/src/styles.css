@@ -14,3 +14,9 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+.margin-div-container {
+  margin-left: 30px !important;
+  margin-right: 30px !important;
+  width: 100%;
+  max-width: unset !important;
+}

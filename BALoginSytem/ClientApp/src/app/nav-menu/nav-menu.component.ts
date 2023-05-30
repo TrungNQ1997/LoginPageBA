@@ -10,12 +10,13 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent {
-
+  //langModel = new Object();
   isExpanded = false;
   dropDownData = [
-    { seo_val: "vi", text_val: "Tiếng Việt", png:"http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/back01.jpg" },
-    { seo_val: "en", text_val: "English", png:"http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/back01.jpg" }
-  ]
+    { val: "vi", text: "Tiếng Việt", img: "/assets/img/icon-co-vn.png" },
+    { val: "en", text: "English", img: "/assets/img/eng.jpg" }
+  ];
+  langModel = this.dropDownData[0];
  collapse() {
    this.isExpanded = false;
    this.translateService.use('vi');
@@ -30,10 +31,15 @@ export class NavMenuComponent {
    this.translateService.use('en');
 }
 
-  setLanguage(lang: any) {
+  setLanguage(lang: any,index:any) {
     this.translateService.use(lang);
+    this.langModel = this.dropDownData[index];
   }
 
+  ngOnInit() {
+    this.langModel = this.dropDownData[0];
+    this.translateService.use(this.dropDownData[0].val);
+  }
 
   constructor(private translateService: TranslateService) {
     

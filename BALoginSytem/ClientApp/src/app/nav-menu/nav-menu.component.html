@@ -2,28 +2,8 @@
   <nav
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
-    <div class="container font-menu" style="height:80px">
-      <!--<h1>{{ 'HELLO_WORLD' | translate }}</h1>-->
-      <!--<button (click)="toggle()">
-        azz
-      </button>
-      <button (click)="collapse()">
-        szz
-      </button>-->
-      <div class="col-lg-2 col-2">
-        <a class="logo"
-           href="https://bagps.vn/"
-           title="">
-          <img id="img"
-               draggable="false"
-               class="style-scope yt-img-shadow"
-               alt=""
-               width="80"
-               src="https://yt3.googleusercontent.com/ytc/AGIKgqNNq8pz2UWbfitGJUwAULnJZIwZnDUdSS_Pdcol=s176-c-k-c0x00ffffff-no-rj">
-        </a>
-      </div>
+    <div class="container font-menu margin-div-container" style="height:auto;min-height:40px;position:relative;justify-content:start">
 
-      <!--<a class="navbar-brand" [routerLink]="['/']">BALoginSytem</a>-->
       <button class="navbar-toggler"
               type="button"
               data-toggle="collapse"
@@ -33,8 +13,24 @@
               (click)="toggle()">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
-           [ngClass]="{ show: isExpanded }">
+
+      <div class="" style="">
+        <a class="logo"
+           href="https://bagps.vn/"
+           title="">
+          <img id="img"
+               draggable="false"
+               class="style-scope yt-img-shadow"
+               alt=""
+               width="80"
+               src="/assets/img/logoBA.jpg">
+        </a>
+      </div>
+
+
+
+      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center"
+           [ngClass]="{ show: isExpanded }" style="width:100%;position:absolute" >
         <ul class="navbar-nav flex-grow">
           <li class="nav-item"
               [routerLinkActive]="['link-active']"
@@ -80,58 +76,122 @@
                target="_blank"
                rel="noopener noreferrer">{{ 'about_us' | translate }}</a>
           </li>
-          <div class="div-tel"  >1900 6464</div>
-          <select class='select-option border-none'
-                  #mySelect
-                  (change)='onOptionsSelected(mySelect.value)'>
-            <option class='option'
-                    *ngFor='let option of dropDownData'
-                    [value]="option.seo_val" (click)="setLanguage(option.seo_val)">
-              <div>
-
-                <img style="height:50px;width:50px"
-                     src="http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/back01.jpg" />
-                {{option.text_val}}
-
-              </div>
-
-            </option>
-          </select>
-
-
-          <!--<div class="dropdown">
-            <button class="dropbtn">
-              Country Flags
-            </button>
-
-            <div class="dropdown-content">
-              <a href="#">
-                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200630132503/iflag.jpg"
-                     width="20" height="15"> India
-              </a>
-
-              <a href="#">
-                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200630132504/uflag.jpg"
-                     width="20" height="15"> USA
-              </a>
-              <a href="#">
-                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200630132502/eflag.jpg"
-                     width="20" height="15"> England
-              </a>
-              <a href="#">
-                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200630132500/bflag.jpg"
-                     width="20" height="15"> Brazil
-              </a>
-            </div>
-          </div>-->
 
 
         </ul>
       </div>
+
+      <div style="display:flex;position:absolute;right:10px;top:0px">
+        <a class=" div-tel" href="tel:1900 6464" style="color: rgb(11,176,229)!important;padding-top:10px">
+          <i style="color:rgb(11,176,229)!important" class="fa-solid fa-phone"></i>  1900 6464
+        </a>
+        <!--<select class='select-option border-none'
+            #mySelect
+            (change)='onOptionsSelected(mySelect.value)'>
+      <option class='option'
+              *ngFor='let option of dropDownData'
+              [value]="option.seo_val" (click)="setLanguage(option.seo_val)">
+        <div>
+
+          <img id="img"
+               draggable="false"
+               class="style-scope yt-img-shadow"
+               alt=""
+               width="80"
+               src="/assets/img/logoBA.jpg">
+          {{option.text_val}}
+
+        </div>
+
+      </option>
+    </select>-->
+
+        <div class="dropdown">
+          <button class="dropbtn">
+            <img width="20" height="20" class="img-flag" src="{{langModel.img}}" />
+            <div style="width:58px;text-align:left">
+              {{langModel.text}}
+            </div>
+            <i style="color:rgb(206,214,224)!important;padding-top:3px" class="fa-solid fa-caret-down"></i>
+          </button>
+          <div class="dropText">
+            <div *ngFor="let lang of dropDownData;let indexOfelement=index;">
+              <a (click)="setLanguage(lang.val,indexOfelement)">
+                <img class="img-flag" src="{{lang.img}}"
+                     width="20" height="20"> {{lang.text}}
+              </a>
+            </div>
+            <!--<a href="#">
+          <img src="https://www.tutorialspoint.com/cg/images/cg_java.png"
+               width="20" height="20">Java
+        </a>
+        <a href="#">
+          <img src="https://www.tutorialspoint.com/cg/images/cg_c++.png"
+               width="20" height="20">C+
+        </a>-->
+
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </nav>
 </header>
 <style>
+  .img-flag{
+    border-radius:20px;
+    margin-right:7px;
+  }
+  /*test*/
+  .dropbtn {
+    background-color: transparent;
+    border:none;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    display:flex;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    width:120px;
+  }
+
+  .dropText {
+    display: none;
+    position: absolute;
+    /*background-color: skyblue;*/
+    min-width: 120px;
+    width:120px;
+    background-color:white;
+    z-index: 1;
+  }
+
+    .dropText a {
+      color: black;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+      cursor:pointer;
+    }
+
+      .dropText a:hover {
+        /*background-color: blue;*/
+        color: red;
+      }
+
+  .dropdown:hover .dropText {
+    display: block;
+  }
+
+  .dropdown:hover .dropbtn {
+    /*background-color: yellow;*/
+  }
+   
+  /*end test*/
+
   .font-menu * {
     color: rgb(97,148,194)!important;
     font-size: 12px;
@@ -141,53 +201,13 @@
   }
   .div-tel {
     border-radius: 25px;
-    border: 0.5px solid rgb(97,148,194);
-    padding-top: 7px;
-    padding-left: 3px;
-    padding-right: 3px;
+    border: 0.5px solid rgb(11,176,229);
+    padding: 5px;
+    color: rgb(11,176,229);
+    text-decoration: none
   }
 
 
 
-  .dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-
-      .dropdown-content a:hover {
-        background-color: #f1f1f1
-      }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-  }
+   
 </style>
