@@ -1,8 +1,8 @@
 
-<div style="height:calc(100vh - 280px )">
+<div style="height:calc(100vh - 280px );min-height:562px">
 
   <!-- div bao news, login -->
-  <div class="slideshow-container max-size " style="position:relative;margin:unset;max-width:unset">
+  <div class="slideshow-container max-size " style="position:relative;margin:unset;max-width:unset;background-image:url('/assets/img/back-ground.png');background-size: 100% 100%">
 
     <!-- Full-width images with number and caption text -->
     <div *ngFor="let ban of listBanner" class="mySlides max-size" style="background-color:rgb(32,52,105)">
@@ -23,7 +23,7 @@
           
           <div class="div-detail"  >
             <a style="text-decoration: none; color: rgb(30,74,102)" href="{{ban.linkTopic}}" target="_blank"
-               rel="noopener noreferrer">Chi tiết</a>
+               rel="noopener noreferrer">{{'detail' | translate}}</a>
             <i  class="fa-solid fa-xs fa-arrow-right icon-detail"></i>
             
           </div>
@@ -55,8 +55,8 @@
         <div class="margin-tb-5" style="display:flex">
 
           <input type="checkbox" id="cb1" style="margin-right:5px" />
-          <label for="cb1" style="margin-right:20px">Nhớ mật khẩu</label>
-          <label>Quên mật khẩu?</label>
+          <label for="cb1" style="margin-right:20px">{{'login.remember_pass'|translate}}</label>
+          <label>{{'login.forgot_pass'|translate}}</label>
 
         </div>
 
@@ -71,12 +71,16 @@
              width="100"
              src="/assets/img/M5GK-qrcode.png" />
 
-        <label>Quét mã QR để cài app</label>
+        <label>{{'login.qr_code' | translate}}</label>
       </div>
-      <div style="text-align:center;position:absolute;bottom:10px;width:100%">
-        <span class="dot" (click)="currentSlide(1)"></span>
-        <span class="dot" (click)="currentSlide(2)"></span>
-        <span class="dot" (click)="currentSlide(3)"></span>
+      <div *ngIf="listBanner.length > 0" style="text-align:center;position:absolute;bottom:10px;width:100%">
+        <span *ngFor="let banner of listBanner;let indexBan = index"
+              class="dot"
+              (click)="currentSlide(indexBan + 1)">
+          <span class="inside-active"  ></span>
+        </span>
+        <!--<span class="dot" (click)="currentSlide(2)"></span>
+        <span class="dot" (click)="currentSlide(3)"></span>-->
       </div>
 
     </div>
@@ -87,15 +91,17 @@
 
 
 
-<div class="d-flex div-container-footer" style="margin-left:auto;margin-right:auto;padding-top:20px;position:relative">
+<div class="d-flex div-container-footer" style="margin-left:40px!important;margin-right:40px!important;padding-top:20px;position:relative;padding-right:150px;flex-wrap:wrap">
   <!--div chi nhánh-->
-  <div class="col-md-2 div-bran" *ngFor="let branch of listBranch" style="height:200px">
+  <div class="div-container-brans"  style="overflow:auto;display:flex">
+    <div class="col-xl-2 col-lg-md-3 col-sm-4 col-12 div-bran" *ngFor="let branch of listBranch" style="height:auto">
 
-    <div class="title-bran">{{branch.title}}</div>
-    <br />
-    <div class="des-bran">{{branch.address}}</div>
+      <div class="title-bran">{{branch.title}}</div>
+      <br />
+      <div class="des-bran">{{branch.address}}</div>
 
 
+    </div>
   </div>
   <div style="display:flex;flex-direction:column;position:absolute;right:0px">
     <!--div link social-->
@@ -119,9 +125,39 @@
 
  
 <style>
-  .div-container-footer{
-    margin-left:30px!important;
-    margin-right:30px!important;
+
+  .div-container-brans::-webkit-scrollbar {
+    width: 5px;
+    height:10px
+  }
+
+  .div-container-brans::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: rgb(241,241,241);
+    height:5px;
+   
+  }
+
+  .div-container-brans::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    height:5px;
+    background-color: rgb(193,193,193);
+  }
+
+
+  .inside-active {
+    width: 7px;
+    height: 7px;
+    display: none;
+    border-radius: 20px;
+    background-color: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+  }
+  .div-container-footer {
+    margin-left: 30px !important;
+    margin-right: 30px !important;
   }
   .img-app{
     width:135px;
@@ -180,8 +216,8 @@
   .div-login {
     position: absolute;
     border-radius: 20px;
-    right: 30px;
-    top: 50px;
+    right: 40px;
+    top: 40px;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -242,7 +278,7 @@
     border-radius: 10px;
     position: absolute;
     bottom: 40px;
-    margin-left: 30px;
+    margin-left: 40px;
     background: rgba(6,33,63,.7);
   }
 
@@ -281,12 +317,7 @@
     border-radius: 3px 0 0 3px;
   }
 
-  .dp-block{
-      display:block;
-  }
-  .dp-none {
-    display: none;
-  }
+
 
     /* On hover, add a black background color with a little bit see-through */
     .prev:hover, .next:hover {
@@ -319,14 +350,20 @@
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #bbb;
+    background-color: white;
     border-radius: 50%;
     display: inline-block;
+    position:relative;
     transition: background-color 0.6s ease;
   }
 
+  .active .inside-active{
+      display:block;
+  }
+
     .active, .dot:hover {
-      background-color: #717171;
+      background-color: transparent;
+      border:2px solid white;
     }
 
   /* Fading animation */

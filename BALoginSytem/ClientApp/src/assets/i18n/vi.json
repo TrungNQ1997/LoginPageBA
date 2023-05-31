@@ -10,7 +10,10 @@
   "login": {
     "login": "Đăng nhập",
     "pass": "Mật khẩu",
-    "username": "Tên đăng nhập"
+    "username": "Tên đăng nhập",
+    "qr_code": "Quét mã QR để cài app",
+    "forgot_pass": "Quên mật khẩu?",
+    "remember_pass": "Nhớ mật khẩu"
   },
   "detail": "Chi tiết"
 

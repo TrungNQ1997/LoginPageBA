@@ -10,7 +10,10 @@
   "login": {
     "login": "Login",
     "pass": "Password",
-    "username": "Username"
+    "username": "Username",
+    "qr_code": "Scan the QR code to install the app",
+    "forgot_pass": "Forgot password?",
+    "remember_pass": "Remember password"
   },
   "detail": "Detail"
 

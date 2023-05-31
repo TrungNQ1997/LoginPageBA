@@ -19,16 +19,31 @@ export class NavMenuComponent {
   langModel = this.dropDownData[0];
  collapse() {
    this.isExpanded = false;
-   this.translateService.use('vi');
+   
   }
 
   onOptionsSelected(value: string) {
     this.translateService.use(value);
   }
 
+
+  toggleMenu() {
+    let divs = document.getElementsByClassName("div-mobile-menu");
+    this.isExpanded = !this.isExpanded;
+    if (this.isExpanded) {
+      divs[0].className = divs[0].className.replace(" dp-none", "");
+      divs[0].className += " dp-block";
+    } else {
+      divs[0].className = divs[0].className.replace(" dp-block", "");
+      divs[0].className += " dp-none";
+    }
+
+    
+  }
+
  toggle() {
    this.isExpanded = !this.isExpanded;
-   this.translateService.use('en');
+   
 }
 
   setLanguage(lang: any,index:any) {

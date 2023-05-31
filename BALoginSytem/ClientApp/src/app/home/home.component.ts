@@ -24,6 +24,18 @@ export class HomeComponent {
       title: "LIÊN TỤC CẬP NHẬT NHỮNG THÔNG TIN VỀ CAMERA XE ĐẦU KÉO",
       description: "Những thông tin mới nhất về camera xe đầu kéo cần được những doanh nghiệp kinh doanh phương tiện này cập nhật thường xuyên.",
       linkImg: "https://bagps.vn/public/media/seo_2022/lien-tuc-cap-nhat-nhung-thong-tin-ve-camera-xe-dau-keo_(2).jpg"
+    },
+     {
+       linkTopic: "https://bagps.vn/doanh-nghiep-van-tai-hanh-khach-chuyen-nghiep-hon-khi-lap-dat-camera-xe-khach-35-cho-d2438",
+       title: "DOANH NGHIỆP VẬN TẢI HÀNH KHÁCH CHUYÊN NGHIỆP HƠN KHI LẮP ĐẶT CAMERA XE KHÁCH 35 CHỖ",
+       description: "Việc lắp đặt camera trong xe khách 35 chỗ là một biện pháp quan trọng giúp nâng cao mức độ an ninh và giám sát trong lĩnh vực vận tải hành khách. Nhờ vào công nghệ camera hiện đại, các doanh nghiệp vận tải có thể tận dụng những lợi ích quan trọng mà nó mang lại.",
+       linkImg: "https://bagps.vn/public/media/seo_2022/doanh-nghiep-van-tai-hanh-khach-chuyen-nghiep-hon-khi-lap-dat-camera-xe-khach-35-cho_(2).jpg"
+    },
+    {
+      linkTopic: "https://bagps.vn/hien-dai-hoa-quan-ly-van-tai-voi-giam-sat-hanh-trinh-4g-buoc-dot-pha-trong-cong-nghe-van-chuyen-d2432",
+      title: "HIỆN ĐẠI HÓA QUẢN LÝ VẬN TẢI VỚI GIÁM SÁT HÀNH TRÌNH 4G: BƯỚC ĐỘT PHÁ TRONG CÔNG NGHỆ VẬN CHUYỂN",
+      description: "Giám sát hành trình 4G Hiện đại hóa quản lý vận tải với định vị. Tận dụng công nghệ 4G để nâng cao hiệu suất và đảm bảo an toàn trong quản lý đội xe.",
+      linkImg: "https://bagps.vn/public/media/san-pham/thanh/thang_5/hiện_đại_hoa_quản_ly_vận_tải_với_giam_sat_hanh_trinh_4g_bước_đột_pha_trong_cong_nghệ_vận_chuyển.jpg"
     }
   ];
   listBranch = [
@@ -34,6 +46,18 @@ export class HomeComponent {
     {
       title: "HẢI PHÒNG",
       address: "Căn BH 01- 47 Khu đô thị Vinhomes Imperia, Đ. Bạch Đằng, P. Thượng Lý, Q. Hồng Bàng, TP. Hải Phòng."
+    },
+    {
+      title: "CHI NHÁNH MIỀN TRUNG",
+      address: "Số B5-15, ngõ 26, Đ. Nguyễn Thái Học, TP. Vinh, Nghệ An.\nSố 402, Đ.Trần Phú, X.Thạch Trung, TP.Hà Tĩnh, Hà Tĩnh."
+    },
+    {
+      title: "ĐÀ NẴNG",
+      address: "Lô 1 Khu B2-19, KĐT Biệt thự sinh thái, Công Viên Văn Hóa Làng Quê và Quần thể Du lịch sông nước, P. Hòa Quý, Ngũ Hành Sơn, TP. Đà Nẵng."
+    },
+    {
+      title: "TP. HỒ CHÍ MINH",
+      address: "Số 9, Đường 37, KĐT Vạn Phúc, P. Hiệp Bình Phước, TP. Thủ Đức, TP. Hồ Chí Minh."
     }
   ]
   slideIndex = 1;
@@ -120,10 +144,11 @@ export class HomeComponent {
 
   ngOnInit() {
     //this.showSlides(this.slideIndex);
+    this.listBanner = [];
   }
  
   ngAfterViewInit() {
-    this.showSlides(this.slideIndex);
+    //this.showSlides(this.slideIndex);
   }
 
 }
