@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 
+
  
 import { TranslateService } from '@ngx-translate/core';
+import { AppComponent } from '../app.component';
 
 
 @Component({
@@ -48,6 +50,7 @@ export class NavMenuComponent {
 
   setLanguage(lang: any,index:any) {
     this.translateService.use(lang);
+    this.appComponent.setCurLang(lang);
     this.langModel = this.dropDownData[index];
   }
 
@@ -56,7 +59,7 @@ export class NavMenuComponent {
     this.translateService.use(this.dropDownData[0].val);
   }
 
-  constructor(private translateService: TranslateService) {
+  constructor(private translateService: TranslateService, private appComponent: AppComponent) {
     
     this.translateService.setDefaultLang('en');
 

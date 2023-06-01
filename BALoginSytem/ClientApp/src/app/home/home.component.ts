@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { AppComponent } from '../app.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
 
@@ -61,7 +64,10 @@ export class HomeComponent {
     }
   ]
   slideIndex = 1;
-
+  username = "";
+  pass = "";
+  notis = "";
+  showMes = false;
 
   showSlidesNoTimeout(n: any) {
     let i;
@@ -70,9 +76,7 @@ export class HomeComponent {
     if (n > slides.length) { this.slideIndex = 1 }
     if (n < 1) { this.slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {
-      //console.log(slides[i])
-      //this.listStatus[i] = true;
-
+      
       slides[i].className = slides[i].className.replace(" dp-none", "");
       slides[i].className = slides[i].className.replace(" dp-block", "");
 
@@ -81,15 +85,11 @@ export class HomeComponent {
     for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
     }
-    //this.listStatus[this.slideIndex - 1] = true;
+     
     slides[this.slideIndex - 1].className = slides[this.slideIndex - 1].className.replace(" dp-none", "");
     slides[this.slideIndex - 1].className += " dp-block";
     dots[this.slideIndex - 1].className += " active";
-    //setTimeout(() => {
-    //  this.showSlides(this.slideIndex += 1)
-    //}, 5000)
-
-    //(this.showSlides(), 1000); // Change image every 5 seconds
+    
   }
 
   showPass() {
@@ -107,9 +107,7 @@ export class HomeComponent {
     if (n > slides.length) { this.slideIndex = 1 }
     if (n < 1) { this.slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {
-      //console.log(slides[i])
-      //this.listStatus[i] = true;
-
+       
       slides[i].className = slides[i].className.replace(" dp-none", "");
       slides[i].className = slides[i].className.replace(" dp-block", "");
 
@@ -118,7 +116,7 @@ export class HomeComponent {
     for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
     }
-    //this.listStatus[this.slideIndex - 1] = true;
+     
     slides[this.slideIndex - 1].className = slides[this.slideIndex - 1].className.replace(" dp-none", "");
     slides[this.slideIndex - 1].className += " dp-block";
     dots[this.slideIndex - 1].className += " active";
@@ -126,9 +124,9 @@ export class HomeComponent {
       this.showSlides(this.slideIndex += 1)
     }, 5000)
 
-      //(this.showSlides(), 1000); // Change image every 5 seconds
+       
   }
-// Next/previous controls
+ 
  plusSlides(n:any) {
   this.showSlidesNoTimeout(this.slideIndex += n);
 }
@@ -137,18 +135,42 @@ export class HomeComponent {
  currentSlide(n:any) {
   this.showSlidesNoTimeout(this.slideIndex = n);
   };
-  constructor() {
+  constructor(private appComponent: AppComponent, private translate: TranslateService) {
    
 
   }
 
+  login() {
+    if (this.username == 'admin' && this.pass == 'admin') {
+   
+      this.translate
+        .get('not_login')
+        .subscribe((successMessage: string) => {
+           
+          this.notis = successMessage;
+          this.showMes = true;
+        });
+
+    } else {
+      
+      this.translate
+        .get('wrong_acc')
+        .subscribe((successMessage: string) => {
+           
+          this.notis = successMessage;
+          this.showMes = true;
+        });
+      
+       
+    }
+  }
+
   ngOnInit() {
-    //this.showSlides(this.slideIndex);
-    this.listBanner = [];
+     
   }
  
   ngAfterViewInit() {
-    //this.showSlides(this.slideIndex);
+    this.showSlides(this.slideIndex);
   }
 
 }

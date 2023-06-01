@@ -15,6 +15,9 @@
     "forgot_pass": "Forgot password?",
     "remember_pass": "Remember password"
   },
-  "detail": "Detail"
-
+  "detail": "Detail",
+  "loginfail": "login fail",
+  "not_login": "Cannot login at this time",
+  "wrong_acc": "Invalid account or password",
+  "title_page": "Login to the system"
 }

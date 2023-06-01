@@ -23,6 +23,11 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\assets\img\back-ground.png" />
+    <None Remove="ClientApp\src\service\data.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\service\data.service.ts" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

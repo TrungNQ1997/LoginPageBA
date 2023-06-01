@@ -31,3 +31,10 @@ code {
 .dp-none {
   display: none!important;
 }
+.font-menu * {
+  color: rgb(97,148,194) !important;
+}
+
+.font-menu {
+  color: rgb(97,148,194) !important;
+}
